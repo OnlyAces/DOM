@@ -1,30 +1,54 @@
 function moduleProject1() {
-  const footer = document.querySelector('footer')
-  const currentYear = new Date().getFullYear()
-  footer.textContent = `© BLOOM INSTITUTE OF TECHNOLOGY ${currentYear}`
+  const footer = document.querySelector('footer');
+  const currentYear = new Date().getFullYear();
+  footer.textContent = `© BLOOM INSTITUTE OF TECHNOLOGY ${currentYear}`;
 
-  // 👇 WORK WORK BELOW THIS LINE 👇
+  // Task 1 - Add a "widget" class name to widgets
+  const widgets = document.querySelectorAll('.widget'); 
+  widgets.forEach(widget => {
+    widget.classList.add('widget');
+  });
 
-  // 👉 TASK 1 - Add a "widget" class name to widgets so CSS kicks in
-  //  ✨ add your code here
+  // Task 2 - Build a "Quote of the Day" widget
+  const quoteWidget = document.createElement('div');
+  quoteWidget.textContent = 'quote goes here';
+  document.body.appendChild(quoteWidget);
 
-  // 👉 TASK 2 - Build a "Quote of the Day" widget
-  //  ✨ add your code here
+  // Task 3 - Build a "Corporate Speak" widget
+  const corporateSpeakWidget = document.createElement('div');
+  corporateSpeakWidget.textContent = 'Corporate  goes here';
+  document.body.appendChild(corporateSpeakWidget);
 
-  // 👉 TASK 3 - Build a "Corporate Speak" widget
-  //  ✨ add your code here
+  // Task 4 - Build a "Countdown" widget
+  const countdownWidget = document.createElement('div');
+  document.body.appendChild(countdownWidget);
 
-  // 👉 TASK 4 - Build a "Countdown" widget
-  //  ✨ add your code here
+  function updateCountdown() {
+  
+    const timeRemaining = calculateTimeRemaining(); 
+    countdownWidget.textContent = `Time remaining: ${timeRemaining} seconds`;
+  }
 
-  // 👉 TASK 5 - Build a "Friends" widget
-  //  ✨ add your code here
+  setInterval(updateCountdown, 1000);
 
-  // 👉 TASK 6 - Make it so user can tab through the widgets
-  //  ✨ add your code here
+  // Task 5 - Build a "Friends" widget
+  const friendsWidget = document.createElement('div');
+  const friendsList = document.createElement('ul');
+  const friends = ["Friend 1", "Friend 2", "Friend 3"]; 
+  friends.forEach(friend => {
+    const listItem = document.createElement('li');
+    listItem.textContent = friend;
+    friendsList.appendChild(listItem);
+  });
+  friendsWidget.appendChild(friendsList);
+  document.body.appendChild(friendsWidget);
 
-  // 👆 WORK WORK ABOVE THIS LINE 👆
+  // Task 6 - Make it so user can tab through the widgets
+  widgets.forEach(widget => {
+    widget.tabIndex = 0; 
+  });
 }
+
 
 // ❗ DO NOT WORK BELOW THIS LINE
 // ❗ DO NOT WORK BELOW THIS LINE
